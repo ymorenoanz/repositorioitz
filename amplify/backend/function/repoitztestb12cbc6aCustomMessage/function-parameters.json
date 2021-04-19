@@ -1,0 +1,21 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "repoitztestb12cbc6a",
+  "functionName": "repoitztestb12cbc6aCustomMessage",
+  "resourceName": "repoitztestb12cbc6aCustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": "[\n  {\n    \"key\": \"RESOURCENAME\",\n    \"value\": \"resourceName\"\n  }\n]",
+  "triggerDir": "C:\\snapshot\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "triggerEventPath": "CustomMessage.event.json",
+  "roleName": "repoitztestb12cbc6aCustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "",
+  "EMAILSUBJECT": "",
+  "EMAILMESSAGE": "",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}

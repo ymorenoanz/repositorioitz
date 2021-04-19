@@ -1,0 +1,29 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-repoitztest-dev-171848-authRole",
+      "UnauthRoleArn": "arn:aws:iam::169343032330:role/amplify-repoitztest-dev-171848-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::169343032330:role/amplify-repoitztest-dev-171848-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
+      "UnauthRoleName": "amplify-repoitztest-dev-171848-unauthRole",
+      "StackName": "amplify-repoitztest-dev-171848",
+      "StackId": "arn:aws:cloudformation:us-east-2:169343032330:stack/amplify-repoitztest-dev-171848/3e539e70-a15d-11eb-b7d8-0281aed4af26",
+      "AmplifyAppId": "d3ws39b7fjgjk"
+    },
+    "categories": {
+      "function": {
+        "repoitztestb12cbc6aCustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
+          "s3Key": "amplify-builds/repoitztestb12cbc6aCustomMessage-6c526455704972726933-build.zip"
+        }
+      },
+      "auth": {
+        "repoitztestb12cbc6a": {}
+      }
+    }
+  }
+}
