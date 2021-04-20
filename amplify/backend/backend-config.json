@@ -7,37 +7,11 @@
     }
   },
   "auth": {
-    "repoitztestb12cbc6a": {
+    "repoitztestb00ce581": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "repoitztestb12cbc6aCustomMessage",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false
-    },
-    "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "repoitztestb12cbc6a",
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ]
-        }
-      ]
     }
   }
 }
