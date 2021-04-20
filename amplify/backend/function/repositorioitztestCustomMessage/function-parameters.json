@@ -3,15 +3,20 @@
   "modules": [
     "verification-link"
   ],
-  "parentResource": "repoitztestb12cbc6a",
-  "functionName": "repoitztestb12cbc6aCustomMessage",
-  "resourceName": "repoitztestb12cbc6aCustomMessage",
+  "parentResource": "repositorioitztest",
+  "functionName": "repositorioitztestCustomMessage",
+  "resourceName": "repositorioitztestCustomMessage",
   "parentStack": "auth",
-  "triggerEnvs": "[\n  {\n    \"key\": \"RESOURCENAME\",\n    \"value\": \"resourceName\"\n  }\n]",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
   "triggerDir": "C:\\snapshot\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
   "triggerTemplate": "CustomMessage.json.ejs",
   "triggerEventPath": "CustomMessage.event.json",
-  "roleName": "repoitztestb12cbc6aCustomMessage",
+  "roleName": "repositorioitztestCustomMessage",
   "skipEdit": true,
   "REDIRECTURL": "",
   "EMAILSUBJECT": "",

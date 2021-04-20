@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "repoitztestb00ce581_identitypool_b00ce581",
+    "identityPoolName": "repositorioitztest24ef468d_identitypool_24ef468d",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "repoitb00ce581",
-    "userPoolName": "repoitztestb00ce581_userpool_b00ce581",
+    "resourceNameTruncated": "reposi24ef468d",
+    "userPoolName": "repositorioitztest24ef468d_userpool_24ef468d",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "repoitb00ce581_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "reposi24ef468d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "b00ce581",
-    "resourceName": "repoitztestb00ce581",
+    "sharedId": "24ef468d",
+    "resourceName": "repositorioitztest24ef468d",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
