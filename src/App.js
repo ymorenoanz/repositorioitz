@@ -11,6 +11,7 @@ function App() {
         <h1>We now have Auth!</h1>
       </header>
       <AmplifySignOut />
+      
     </div>
   );
 }
