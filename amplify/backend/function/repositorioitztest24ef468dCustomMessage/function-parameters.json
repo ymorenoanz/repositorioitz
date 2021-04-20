@@ -7,12 +7,7 @@
   "functionName": "repositorioitztest24ef468dCustomMessage",
   "resourceName": "repositorioitztest24ef468dCustomMessage",
   "parentStack": "auth",
-  "triggerEnvs": [
-    {
-      "key": "RESOURCENAME",
-      "value": "resourceName"
-    }
-  ],
+  "triggerEnvs": "[\n  {\n    \"key\": \"RESOURCENAME\",\n    \"value\": \"resourceName\"\n  }\n]",
   "triggerDir": "C:\\snapshot\\node_modules\\amplify-category-auth\\provider-utils\\awscloudformation\\triggers\\CustomMessage",
   "triggerTemplate": "CustomMessage.json.ejs",
   "triggerEventPath": "CustomMessage.event.json",

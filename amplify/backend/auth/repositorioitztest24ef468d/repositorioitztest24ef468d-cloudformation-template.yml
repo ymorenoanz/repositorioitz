@@ -173,15 +173,6 @@ Parameters:
     Type: String
   
             
-  hostedUIProviderCreds:
-    Type: String
-  
-            
-  oAuthMetadata:
-    Type: String
-  
-            
-            
   verificationBucketName:
     Type: String
   
@@ -198,6 +189,15 @@ Parameters:
   authProviders:
     Type: CommaDelimitedList
       
+  hostedUIProviderCreds:
+    Type: String
+  
+            
+  oAuthMetadata:
+    Type: String
+  
+            
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
   

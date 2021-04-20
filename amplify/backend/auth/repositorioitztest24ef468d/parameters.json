@@ -68,11 +68,11 @@
     "hostedUIDomainName": "repositorioitztest614d2f85-614d2f85",
     "authProvidersUserPool": [],
     "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"http://localhost:3000//\"],\"LogoutURLs\":[\"http://localhost:3000/\"]}",
     "verificationBucketName": "repositorioitztest24ef468dverificationbucket",
     "parentStack": {
         "Ref": "AWS::StackId"
     },
     "permissions": [],
-    "authProviders": []
+    "authProviders": [],
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"email\",\"openid\",\"profile\"],\"CallbackURLs\":[\"https://main.d3ws39b7fjgjk.amplifyapp.com/\",\"http://localhost:3000/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://main.d3ws39b7fjgjk.amplifyapp.com/\"]}"
 }
