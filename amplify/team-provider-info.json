@@ -39,24 +39,21 @@
       "AmplifyAppId": "d3ws39b7fjgjk"
     },
     "categories": {
-      "function": {
-        "repoitztestb12cbc6aCustomMessage": {
-          "REDIRECTURL": "",
-          "EMAILSUBJECT": "",
-          "EMAILMESSAGE": "",
-          "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
-          "s3Key": "amplify-builds/repoitztestb12cbc6aCustomMessage-6c526455704972726933-build.zip"
-        },
-        "repoitztestb00ce581CustomMessage": {
-          "REDIRECTURL": "",
-          "EMAILSUBJECT": "",
-          "EMAILMESSAGE": "",
-          "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
-          "s3Key": "amplify-builds/repoitztestb00ce581CustomMessage-7866336b633268364b75-build.zip"
-        }
-      },
       "auth": {
-        "repoitztestb00ce581": {}
+        "repositorioitztest24ef468d": {}
+      },
+      "function": {
+        "repositorioitztestCustomMessage": {
+          "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
+          "s3Key": "amplify-builds/repositorioitztestCustomMessage-7a425153716c797a5767-build.zip"
+        },
+        "repositorioitztest24ef468dCustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
+          "s3Key": "amplify-builds/repositorioitztest24ef468dCustomMessage-6a392b4b623136454366-build.zip"
+        }
       }
     }
   }
