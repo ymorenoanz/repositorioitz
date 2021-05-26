@@ -19,6 +19,13 @@
           "EMAILMESSAGE": "",
           "deploymentBucketName": "amplify-amplify746f9ff140104-staging-221030-deployment",
           "s3Key": "amplify-builds/repositorioitztestCustomMessage-7a425153716c797a5767-build.zip"
+        },
+        "repositorioitztest24ef468dCustomMessage": {
+          "REDIRECTURL": "",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-amplify746f9ff140104-staging-221030-deployment",
+          "s3Key": "amplify-builds/repositorioitztest24ef468dCustomMessage-6a392b4b623136454366-build.zip"
         }
       },
       "auth": {

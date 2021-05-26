@@ -1,0 +1,8 @@
+type Todo @model 
+{
+  id: ID!
+  nombrearchivo: String!
+  tipoarchivo: String
+  archivo: String
+  tamanoarchivo: Float
+}
