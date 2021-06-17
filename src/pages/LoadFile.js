@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 
 // create function to work with Storage
 
-const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: ''}
+const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: '', tamanoarchivo: parseFloat}
 
 
 function LoadFile() 
@@ -75,7 +75,7 @@ async function createTodo()
  {
   if (!e.target.files[0]) return
   const file = e.target.files[0];
-  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, archivo:file.name});
+  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, tamanoarchivo: file.size, archivo:file.name});
   await Storage.put(file.name, file);
   fetchNotes();
 }
@@ -100,6 +100,14 @@ return(
         <input type="text" id="example3" className="form-control form-control-sm" 
           onChange={e => setFormData({ ...formData, 'tipoarchivo': e.target.value})}
           value={formData.tipoarchivo}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="example3">Tamaño de archivo</label>
+        <input type="text" id="example3" className="form-control form-control-sm" 
+          onChange={e => setFormData({ ...formData, 'tamanoarchivo': e.target.value})}
+          value={formData.tamanoarchivo}
         />
       </div>
 
