@@ -3,6 +3,8 @@ import {withRouter}  from 'react-router-dom';
 import {Navbar, Nav, NavDropdown} from "react-bootstrap";
 import {Form, FormControl} from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { searchTodo } from '../graphql/mutations';
+
 
 class Menu extends React.Component 
 {
@@ -29,12 +31,12 @@ class Menu extends React.Component
         <NavDropdown.Item href="#">Imagenes</NavDropdown.Item>
         <NavDropdown.Item href="#">Documentos</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.4">Por categoría</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Buscar</Button>
+      <Button variant="outline-success" href="Search">Buscar</Button>
       </Form>
     </Navbar.Collapse>
   </Navbar>

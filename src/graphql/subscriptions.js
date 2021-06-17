@@ -8,7 +8,6 @@ export const onCreateTodo = /* GraphQL */ `
       nombrearchivo
       tipoarchivo
       archivo
-      tamanoarchivo
       createdAt
       updatedAt
     }
@@ -21,7 +20,6 @@ export const onUpdateTodo = /* GraphQL */ `
       nombrearchivo
       tipoarchivo
       archivo
-      tamanoarchivo
       createdAt
       updatedAt
     }
@@ -34,7 +32,6 @@ export const onDeleteTodo = /* GraphQL */ `
       nombrearchivo
       tipoarchivo
       archivo
-      tamanoarchivo
       createdAt
       updatedAt
     }

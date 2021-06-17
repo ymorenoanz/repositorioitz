@@ -30,7 +30,7 @@
     }
   },
   "storage": {
-    "itzdatalake": {
+    "repositorioitz": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
@@ -44,7 +44,7 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7,
+              "apiKeyExpirationDays": 365,
               "description": ""
             }
           },

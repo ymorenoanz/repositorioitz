@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import { React, useState, useEffect, Fragment } from 'react';
 import { withAuthenticator} from '@aws-amplify/ui-react'
 import { API, Storage} from 'aws-amplify';
 import { listTodos } from '../graphql/queries';
@@ -7,13 +7,17 @@ import { Button } from "react-bootstrap";
 
 // create function to work with Storage
 
-const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: '', tamanoarchivo: parseFloat}
+const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: ''}
 
 
 function LoadFile() 
 {
   const [notas, setNotas] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
+  //var categoria= ['Sistemas', 'TICS'];
+  //var subcategoria= ['Bases de datos', 'Programación', 'Redes'];
+  //var subsubcategoria= ['NoSQL', 'POO', 'Hacking'];
+
 
   useEffect(() => 
   {
@@ -21,6 +25,8 @@ function LoadFile()
    }, []);
 
 
+  //Esta función utiliza el tipo de API para enviar una consulta a la API de GraphQL 
+  //y recuperar una lista de notas.
    async function fetchNotes() 
   {
     const apiData = await API.graphql({ query: listTodos });
@@ -38,46 +44,43 @@ function LoadFile()
    }
 
 
-  async function createTodo() 
- {
-   if (!formData.nombrearchivo || !formData.tipoarchivo) return;
-   await API.graphql({ query: createTodoMutation, variables: { input: formData } });
-    if (formData.archivo) 
-   {
-     const file = await Storage.get(formData.archivo);
-     formData.archivo = file;
+async function createTodo() 
+{
+    if (!formData.nombrearchivo || !formData.tipoarchivo) return;
+    await API.graphql({ query: createTodoMutation, variables: { input: formData } });
+    try
+   { 
+     if (formData.archivo) 
+     {
+      const file = await Storage.get(formData.archivo);
+      formData.file = file;
+     }
+     setNotas([ ...notas, formData ]);
+     setFormData(initialFormState);
    }
-   setNotas([ ...notas, formData ]);
-   setFormData(initialFormState);
+   catch(error)
+   {
+     console.log('Error uploading file', error);
+   }
 }
 
-
- async function deleteTodo({ id }) 
+ /*async function deleteTodo({ id }) 
  {
    const newNotesArray = notas.filter(nota => nota.id !== id);
    setNotas(newNotesArray);
    await API.graphql({ query: deleteTodoMutation, variables: { input: { id } }});
- }
+ } */
 
  async function onChange(e) 
  {
-   if (!e.target.files[0]) return
-   const file = e.target.files[0];
-   setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, archivo: file.name, tamanoarchivo: file.size + ' bytes'});
-   try 
-   {
-    await Storage.put(file.nombrearchivo, file, 
-      {
-      contentType: 'image/png' || 'image/jpg' || 'image/jpeg' ||'text/docx' || 'text/pdf' // contentType is optional
-    });
-  } catch (error) {
-    console.log('Error uploading file: ', error);
-  }  
-   //await Storage.put(file.nombrearchivo, file);
-   fetchNotes();
- }
+  if (!e.target.files[0]) return
+  const file = e.target.files[0];
+  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, archivo:file.name});
+  await Storage.put(file.name, file);
+  fetchNotes();
+}
 
-return (
+return(
 <div className="LoadFile">
      
 <h2>Subir archivos</h2>
@@ -100,41 +103,24 @@ return (
         />
       </div>
 
-      <div className="form-group">
-        <label htmlFor="example3">Tamaño de archivo</label>
-        <input type="text" id="example3" className="form-control form-control-sm" 
-           onChange={e => setFormData({ ...formData, 'tamanoarchivo': e.target.value})}
-           value={formData.tamanoarchivo}
-        />
-      </div>
 
       <div className="form-group">
-        <label htmlFor="example3">Nombre</label>
+        <label htmlFor="example3">Archivo</label>
         <input type="file" id="example3" className="form-control form-control-sm" 
+        accept="image/*, video/*, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         onChange={onChange}
-        multiple
-        />
+        multiple />
       </div>
 
       <br />
 
       <div className="form-group">
-      <Button onClick={createTodo}>Crear JSON</Button>
+      <Button onClick={createTodo}>Subir archivo</Button>
       </div>
+
     </Fragment>
-    
-      
-        <div style={{marginBottom: 30}}>
-          {
-            notas.map(nota => (
-              <div key={notas.id || notas.nombrearchivo}>
-                <h2>{notas.nombrearchivo}</h2>
-                <p>{notas.tipoarchivo}</p>
-                <Button onClick={() => deleteTodo(notas)}>Borrar JSON</Button>
-              </div>
-            ))
-          }
-        </div>
+
+
       </div>
     );
 

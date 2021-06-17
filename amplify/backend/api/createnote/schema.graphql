@@ -4,5 +4,4 @@ type Todo @model
   nombrearchivo: String!
   tipoarchivo: String
   archivo: String
-  tamanoarchivo: Float
 }

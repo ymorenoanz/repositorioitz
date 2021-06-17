@@ -8,7 +8,6 @@ export const getTodo = /* GraphQL */ `
       nombrearchivo
       tipoarchivo
       archivo
-      tamanoarchivo
       createdAt
       updatedAt
     }
@@ -26,7 +25,6 @@ export const listTodos = /* GraphQL */ `
         nombrearchivo
         tipoarchivo
         archivo
-        tamanoarchivo
         createdAt
         updatedAt
       }
