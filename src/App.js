@@ -8,8 +8,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import LoadFile from './pages/LoadFile';
 import Menu from './components/Menu';
 import Home from './pages/Home';
-import Buscar from './pages/Buscar';
-
+import ListImage from './pages/ListImage';
 
 function App() 
 {
@@ -27,7 +26,7 @@ function App()
        <div>
        <Route path={'/Home'} component={Home}></Route>
        <Route path={'/LoadFile'} component={LoadFile}></Route>
-       <Route path={'/Search'} component={Buscar}></Route>
+       <Route path={'/ListImage'} component={ListImage}></Route>
        <Route path={'/Logout'} component={AmplifySignOut}></Route>
        </div>
 

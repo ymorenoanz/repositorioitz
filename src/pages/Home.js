@@ -1,3 +1,4 @@
+import React from 'react';
 import Carrusel from '../components/Carrusel';
 
 function Home()

@@ -1,3 +1,6 @@
+
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+
 function Logout()
 {
     return (

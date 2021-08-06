@@ -9,6 +9,10 @@ export const getTodo = /* GraphQL */ `
       tipoarchivo
       archivo
       tamanoarchivo
+      categoria
+      subcategoria
+      subsubcategoria
+      rutadocumento
       createdAt
       updatedAt
     }
@@ -27,6 +31,10 @@ export const listTodos = /* GraphQL */ `
         tipoarchivo
         archivo
         tamanoarchivo
+        categoria
+        subcategoria
+        subsubcategoria
+        rutadocumento
         createdAt
         updatedAt
       }

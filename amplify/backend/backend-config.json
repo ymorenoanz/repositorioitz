@@ -1,19 +1,9 @@
 {
   "auth": {
-    "repositorioitztest24ef468d": {
+    "repositorioitztest385e45ba": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "repositorioitztest24ef468dCustomMessage",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
+      "dependsOn": [],
       "customAuth": false
     }
   },

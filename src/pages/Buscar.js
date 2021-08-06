@@ -5,16 +5,16 @@ import { API, Storage} from 'aws-amplify';
 import { listTodos, Search } from '../graphql/queries';
 import { searchTodo } from '../graphql/mutations';
 
+const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: '', 
+categoria:'',subcategoria:'', subsubcategoria:''}
+
 function Buscar() 
 {
   
   const [notas, setNotas] = useState([]);
   //const [formData, setFormData] = useState(initialFormState);
 
-  useEffect(() => 
-  {
-  listTodo();
-   }, []);
+  useEffect(() => { listTodo();}, []);
 
   const columns = [
     { field: 'id', headerName: 'ID', width: 170 },
@@ -30,6 +30,7 @@ function Buscar()
    setNotas(newNotesArray);
    await API.graphql({ query: listTodos, variables: { input: { id, nombrearchivo, tipoarchivo, archivo} }});
  } 
+
 
       //const category = this.props.category;
       return (

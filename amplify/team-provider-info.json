@@ -46,9 +46,6 @@
       "AmplifyAppId": "d3ws39b7fjgjk"
     },
     "categories": {
-      "auth": {
-        "repositorioitztest24ef468d": {}
-      },
       "function": {
         "repositorioitztestCustomMessage": {
           "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
@@ -61,6 +58,9 @@
           "deploymentBucketName": "amplify-repoitztest-dev-171848-deployment",
           "s3Key": "amplify-builds/repositorioitztest24ef468dCustomMessage-6a392b4b623136454366-build.zip"
         }
+      },
+      "auth": {
+        "repositorioitztest385e45ba": {}
       }
     }
   }

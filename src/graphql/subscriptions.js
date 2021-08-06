@@ -9,6 +9,10 @@ export const onCreateTodo = /* GraphQL */ `
       tipoarchivo
       archivo
       tamanoarchivo
+      categoria
+      subcategoria
+      subsubcategoria
+      rutadocumento
       createdAt
       updatedAt
     }
@@ -22,6 +26,10 @@ export const onUpdateTodo = /* GraphQL */ `
       tipoarchivo
       archivo
       tamanoarchivo
+      categoria
+      subcategoria
+      subsubcategoria
+      rutadocumento
       createdAt
       updatedAt
     }
@@ -35,6 +43,10 @@ export const onDeleteTodo = /* GraphQL */ `
       tipoarchivo
       archivo
       tamanoarchivo
+      categoria
+      subcategoria
+      subsubcategoria
+      rutadocumento
       createdAt
       updatedAt
     }

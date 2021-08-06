@@ -1,49 +1,59 @@
 import React from 'react';
-import {withRouter}  from 'react-router-dom';
-import {Navbar, Nav, NavDropdown} from "react-bootstrap";
-import {Form, FormControl} from "react-bootstrap";
-import { Button } from "react-bootstrap";
-import { searchTodo } from '../graphql/mutations';
+import { withRouter } from 'react-router-dom';
+import ListObjects from '../pages/ListImage';
+import { withAuthenticator, AmplifySignOut, AmplifyAuthenticator } from '@aws-amplify/ui-react'
 
 
 class Menu extends React.Component 
 {
-    getNavLinkClass = (path) => 
-    {
-        return this.props.location.pathname === path ? 'active' : '';
-    }
 
-  render() 
-  {
-    return (
-    <div className="Menu">
+	getNavLinkClass = (path) => 
+	{
+		return this.props.location.pathname === path ? 'active' : '';
+	}
 
-  <Navbar bg="light" expand="lg">
-   <Navbar.Brand href="#home">Repositorio ITZ</Navbar.Brand>
-   <Navbar.Toggle aria-controls="basic-navbar-nav" />
-   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="mr-auto">
-      <Nav.Link href="Home">Inicio</Nav.Link>
-      <Nav.Link href="LoadFile">Subir archivos</Nav.Link>
-      <Nav.Link href="Logout">Cerrar sesión</Nav.Link>
-      <NavDropdown title="Categorías" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#">Videos</NavDropdown.Item>
-        <NavDropdown.Item href="#">Imagenes</NavDropdown.Item>
-        <NavDropdown.Item href="#">Documentos</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Por categoría</NavDropdown.Item>
-      </NavDropdown>
-    </Nav>
-    <Form inline>
-      <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success" href="Search">Buscar</Button>
-      </Form>
-    </Navbar.Collapse>
-  </Navbar>
-    </div>
-  );
-}
-Menu = withRouter(Menu);
-};
+		render()
+		{
+			return (
+					<nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-export default Menu;
+						<a className="navbar-brand" href="Home">Repositorio ITZ</a>
+						<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+							<span className="navbar-toggler-icon"></span>
+						</button>
+						<div className="collapse navbar-collapse" id="navbarCollapse">
+							<ul className="navbar-nav mr-auto">
+								<li className="nav-item active">
+									<a className="nav-link" href="Home">Inicio <span className="sr-only"></span></a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="LoadFile">Subir archivos</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="ListImage">Buscar imágenes</a>
+								</li>
+								<li className="nav-item">
+									<a className="nav-link" href="ListDocs">Buscar documentos</a>
+								</li>
+								<li>
+								<AmplifySignOut/>
+								</li>
+							</ul>
+
+							<form className="form-inline mt-2 mt-md-0">
+
+								<div className="form-group">
+									<input type="text" id="example3" className="form-control form-control-sm" />
+								</div>
+								<button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+							</form>
+						</div>
+
+					</nav>
+			);
+		}
+
+		Menu = withRouter(Menu);
+	};
+
+	export default (Menu);

@@ -1,22 +1,61 @@
 import { React, useState, useEffect, Fragment } from 'react';
-import { withAuthenticator} from '@aws-amplify/ui-react'
+import { withAuthenticator} from '@aws-amplify/ui-react';
 import { API, Storage} from 'aws-amplify';
 import { listTodos } from '../graphql/queries';
 import { createTodo as createTodoMutation, deleteTodo as deleteTodoMutation } from '../graphql/mutations';
-import { Button } from "react-bootstrap";
+import { Button} from "react-bootstrap";
+import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
+import Select from 'react-select';
+import { black } from '@jest/types/node_modules/chalk';
 
 // create function to work with Storage
 
-const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: '', tamanoarchivo: parseFloat}
+const initialFormState = { nombrearchivo: '', tipoarchivo:'', archivo: '', tamanoarchivo: parseFloat,
+categoria:'', subcategoria:'', subsubcategoria:'', rutadocumento:''}
 
 
 function LoadFile() 
 {
   const [notas, setNotas] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
-  //var categoria= ['Sistemas', 'TICS'];
-  //var subcategoria= ['Bases de datos', 'Programación', 'Redes'];
-  //var subsubcategoria= ['NoSQL', 'POO', 'Hacking'];
+
+  //const [value, setValue] =useState();
+  /*const onDropdownChange = (value) => {
+    setValue(value);
+  } */
+  /*const [dropdown, setDropdown]=useState(false);
+  const abrirCerrarDropdown=() => {
+    setDropdown(!dropdown);
+  } */
+
+  const categoria = [
+    { label: "Sistemas", value: "Sistemas",color: black},
+    { label: "TICS", value: "TICS", color:black},
+    { label: "Bioquímica", value: "Bioquímica", color:black},
+    { label: "Civil", value: "Civil", color:black},
+  ];
+
+  const subcategoria = [
+    { label: "Bases de datos", value: "Bases de datos", color:black },
+    { label: "Programación", value: "Programación", color:black },
+    { label: "Redes", value: "Redes", color:black},
+    { label: "Química", value: "Química", color: black},
+
+  ];
+
+  const subsubcategoria = [
+    { label: "NoSQL", value: "NoSQL" ,color: black},
+    { label: "POO", value: "POO" },
+    { label: "Hacking", value: "Hacking" },
+
+  ];
+
+  
+  const [result, ddlvalue] =useState(categoria.label);
+  const ddHandler = e =>
+  {
+     ddlvalue(e.value); 
+  } 
 
 
   useEffect(() => 
@@ -43,7 +82,7 @@ function LoadFile()
     setNotas(apiData.data.listTodos.items);
    }
 
-
+//Esta función crea un archivo JSON y guarda los metadatos del archivo
 async function createTodo() 
 {
     if (!formData.nombrearchivo || !formData.tipoarchivo) return;
@@ -71,15 +110,24 @@ async function createTodo()
    await API.graphql({ query: deleteTodoMutation, variables: { input: { id } }});
  } */
 
+
+ //Esta función maneja la carga del archivo
  async function onChange(e) 
  {
   if (!e.target.files[0]) return
   const file = e.target.files[0];
-  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, tamanoarchivo: file.size, archivo:file.name});
+  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, tamanoarchivo: file.size,
+  archivo:file.name, rutadocumento:URL.createObjectURL(file)});
   await Storage.put(file.name, file);
   fetchNotes();
-}
+ }
 
+ function handleChange(e) 
+ {    
+  this.setState({value: e.target.value});  
+ }
+
+ 
 return(
 <div className="LoadFile">
      
@@ -109,6 +157,22 @@ return(
           onChange={e => setFormData({ ...formData, 'tamanoarchivo': e.target.value})}
           value={formData.tamanoarchivo}
         />
+      </div> 
+
+      <div className="form-group">
+        <label htmlFor="example3">Categoría</label>
+        <Select options={categoria} styles={{background: 'black'}} >  
+        </Select>
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="example3">Subcategoría</label>
+        <Select options={subcategoria} styles={{background: 'black'}} ></Select>
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="example3">Subsubcategoría</label>
+        <Select options={subsubcategoria} styles={{background: 'black'}} ></Select>
       </div>
 
 
@@ -118,6 +182,14 @@ return(
         accept="image/*, video/*, application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         onChange={onChange}
         multiple />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="example3">Ruta del archivo</label>
+        <input type="text" id="example3" className="form-control form-control-sm" 
+          onChange={e => setFormData({ ...formData, 'rutadocumento': e.target.value})}
+          value={formData.rutadocumento}
+        />
       </div>
 
       <br />
@@ -130,7 +202,7 @@ return(
 
 
       </div>
-    );
+    ); 
 
   }
 
