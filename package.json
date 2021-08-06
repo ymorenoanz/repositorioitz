@@ -15,6 +15,7 @@
     "aws-sdk": "^2.952.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^5.0.2",
+    "chalk": "^4.1.2",
     "exif-js": "^2.3.0",
     "exiftool": "0.0.3",
     "express": "^4.17.1",
@@ -64,15 +65,5 @@
     ]
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yarizzanz/repositorioitztest.git"
-  },
-  "author": "Yaritza Moreno",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yarizzanz/repositorioitztest/issues"
-  },
-  "homepage": "https://github.com/yarizzanz/repositorioitztest#readme"
+  "main": "index.js"
 }

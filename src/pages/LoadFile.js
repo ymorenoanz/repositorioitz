@@ -6,7 +6,7 @@ import { createTodo as createTodoMutation, deleteTodo as deleteTodoMutation } fr
 import { Button} from "react-bootstrap";
 import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 import Select from 'react-select';
-import { black } from '@jest/types/node_modules/chalk';
+import { black } from 'chalk';
 
 // create function to work with Storage
 
