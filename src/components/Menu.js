@@ -33,7 +33,7 @@ class Menu extends React.Component
 									<a className="nav-link" href="ListImage">Buscar imágenes</a>
 								</li>
 								<li className="nav-item">
-									<a className="nav-link" href="ListDocs">Buscar documentos</a>
+									<a className="nav-link" href="ListPdf">Buscar documentos</a>
 								</li>
 								<li>
 								<AmplifySignOut/>

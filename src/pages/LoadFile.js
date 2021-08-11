@@ -4,9 +4,9 @@ import { API, Storage} from 'aws-amplify';
 import { listTodos } from '../graphql/queries';
 import { createTodo as createTodoMutation, deleteTodo as deleteTodoMutation } from '../graphql/mutations';
 import { Button} from "react-bootstrap";
-import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 import Select from 'react-select';
 import { black } from 'chalk';
+//import {Dropdown, DropdownItem, DropdownMenu, DropdownToggle} from 'reactstrap';
 
 // create function to work with Storage
 
@@ -116,9 +116,10 @@ async function createTodo()
  {
   if (!e.target.files[0]) return
   const file = e.target.files[0];
-  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, tamanoarchivo: file.size,
-  archivo:file.name, rutadocumento:URL.createObjectURL(file)});
   await Storage.put(file.name, file);
+  const signedURL = await Storage.get(file.name); //URL del objeto
+  setFormData({ ...formData, nombrearchivo: file.name, tipoarchivo: file.type, tamanoarchivo: file.size,
+    archivo:file.name, rutadocumento:signedURL});
   fetchNotes();
  }
 

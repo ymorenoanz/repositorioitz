@@ -1,5 +1,5 @@
 
-import { withAuthenticator, AmplifyS3Album} from '@aws-amplify/ui-react';
+import { withAuthenticator, AmplifyS3Album, AmplifyS3ImagePicker} from '@aws-amplify/ui-react';
 import { render } from '@testing-library/react';
 import { Storage} from 'aws-amplify';
 import React from 'react';
@@ -12,13 +12,10 @@ import {BrowserRouter, Switch, Route}  from 'react-router-dom';
 {
     state = { fileUrl: ''}
 
-    //imagenGrande = document.getElementById('imagenGrande');
-    //contenedorMiniaturas= document.getElementById('contenedorMiniaturas');
-
     //Consulta en el bucket la imagen para desplegarla en la pantalla
     componentDidMount()
     {
-        Storage.list('public/')
+        Storage.get('public/')
         .then(result => this.setState({
                 fileUrl: result
         }) )
