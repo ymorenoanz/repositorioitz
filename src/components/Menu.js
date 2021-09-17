@@ -29,24 +29,21 @@ class Menu extends React.Component
 								<li className="nav-item">
 									<a className="nav-link" href="LoadFile">Subir archivos</a>
 								</li>
+                                
 								<li className="nav-item">
-									<a className="nav-link" href="ListImage">Buscar imágenes</a>
+									<a className="nav-link" href="Buscador">Buscador</a>
 								</li>
+
 								<li className="nav-item">
-									<a className="nav-link" href="ListPdf">Buscar documentos</a>
+									<a className="nav-link" href="DataGrid">Descargar archivos</a>
 								</li>
+
 								<li>
 								<AmplifySignOut/>
 								</li>
 							</ul>
 
-							<form className="form-inline mt-2 mt-md-0">
-
-								<div className="form-group">
-									<input type="text" id="example3" className="form-control form-control-sm" />
-								</div>
-								<button className="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-							</form>
+							<br />
 						</div>
 
 					</nav>

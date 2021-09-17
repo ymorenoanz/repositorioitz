@@ -5,8 +5,8 @@ type Todo @model
   tipoarchivo: String
   archivo: String
   tamanoarchivo: Float,
-  categoria: [String]!
-  subcategoria: [String]!
-  subsubcategoria: [String]!
+  categoria: String
+  subcategoria: String
+  subsubcategoria: String
   rutadocumento: String
 }

@@ -1,56 +1,64 @@
 import { withAuthenticator, AmplifyS3Album } from "@aws-amplify/ui-react";
 import { render } from "@testing-library/react";
 import { Storage } from "aws-amplify";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Component } from "react";
-import { Document, Page, Text, View, StyleSheet } from '@react-pdf/renderer';
-import { AmplifyS3Text, AmplifyS3TextPicker} from '@aws-amplify/ui-react';
+import { Document, Page, Text, View, StyleSheet, PDFViewer } from '@react-pdf/renderer';
+import { AmplifyS3Text, AmplifyS3TextPicker } from '@aws-amplify/ui-react';
+import { DataGrid } from '@material-ui/data-grid';
+import { listTodos } from "../graphql/queries";
+import { API } from 'aws-amplify';
+
 
 class ListDocs extends Component 
 {
-    state = { fileUrl: ''}
+  state = { fileUrl: "" };
 
-   //Consulta en el bucket el documento para desplegarla en la pantalla
-   componentDidMount()
-   {
-       Storage.get('public/')
-       .then(result => this.setState({
-               fileUrl: result
-       }) )
-       .catch(err => console.log('error fetching document' + err));
-   } 
-
-   processStorageList(result) 
-   {
-    const filesystem = {}
-    // https://stackoverflow.com/questions/44759750/how-can-i-create-a-nested-object-representation-of-a-folder-structure
-    const add = (fileUrl, target, result) => {
-      const elements = fileUrl.split("/");
-      const element = elements.shift();
-      if (!element) return // blank
-      target[element] = target[element] || {__data: result}// element;
-      if (elements.length) 
-      {
-        target[element] = typeof target[element] === "object" ? target[element] : {};
-        add(elements.join("/"), target[element], result);
-      }
-    };
-    result.forEach(result => add(result.key, filesystem, result));
-    return filesystem
+  constructor(props) 
+  {
+    super(props);
+    this.state = { value: "" };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  render() 
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+  handleSubmit(event) {
+    alert("A name was submitted: " + this.state.value);
+    event.preventDefault();
+  }
+
+  //Consulta en el bucket el documento para desplegarla en la pantalla
+  componentDidMount()
   {
-    return(
-      <div className="docsViewer">
-      <label htmlFor="example3">Documentos</label>
-      <div>
-      <AmplifyS3Text path={this.state.fileUrl} contentType="application/pdf"/>
-      <AmplifyS3TextPicker contentType="pdf"/>
-      </div> 
-   </div> 
-    ) 
-    
+      Storage.list("public/")
+      .then(result => 
+        this.setState({
+              fileUrl: result
+      }) )
+      .catch(err => console.log('error fetching document' + err));
+  }
+
+
+/*  async function componentDidMount() 
+  {
+    Storage.get('public/ArquitecturaDataLake.pdf', { download: true })
+      .then(result => this.setState({
+        fileUrl: result.forEach(item => console.log(item))
+      }))
+      .catch(err => console.error(err))
+  } */
+
+
+  render()
+  {
+    return (
+      <a href="./PDF" target="_blank"> <button>Ir a PDF</button></a>
+
+    )
+
   }
 }
 

@@ -10,9 +10,14 @@ import Menu from './components/Menu';
 import Home from './pages/Home';
 import ListImage from './pages/ListImage';
 import ListDocs from './pages/ListDocs';
-import ListDocuments from './pages/ListDocuments';
 import ListPdf from './pages/ListPdf';
 import MyDocs from './pages/MyDocs';
+import TablaResult from './pages/TablaResult';
+import PDF from './pages/PDF';
+import Footer from './components/Footer';
+import DownloadFiles from './pages/DownloadFiles';
+import DataGrid from './pages/DataGrid';
+import Buscador from './pages/Buscador';
 
 function App() 
 {
@@ -31,8 +36,10 @@ function App()
        <Route path={'/Home'} component={Home}></Route>
        <Route path={'/LoadFile'} component={LoadFile}></Route>
        <Route path={'/ListImage'} component={ListImage}></Route>
-       <Route path={'/ListPdf'} component={ListPdf}></Route>
+       <Route path={'/DataGrid'} component={DataGrid}></Route>
+       <Route path={'/Buscador'} component={Buscador}></Route>
        <Route path={'/Logout'} component={AmplifySignOut}></Route>
+       <Route exact path='/PDF' component={PDF}/>
        </div>
 
      </Router>
@@ -42,6 +49,8 @@ function App()
       <GlobalStyles />
       </>
     </ThemeProvider>
+
+    <Footer /> 
     </div>
   );
 }

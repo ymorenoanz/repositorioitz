@@ -16,7 +16,7 @@ class MyDocs extends Component
     //Consulta en el bucket la imagen para desplegarla en la pantalla
     componentDidMount()
     {
-        Storage.list('public/aws-cli.pdf')
+        Storage.list("public/")
         .then(result => this.setState({
                 fileUrl: result
         }) )
