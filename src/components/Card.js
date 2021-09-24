@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { listTodos } from "../graphql/queries";
 import { API } from 'aws-amplify';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -17,6 +18,7 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableFooter from '@material-ui/core/TableFooter';
 import TablePagination from '@material-ui/core/TablePagination';
+import FileViewer from 'react-file-viewer';
 
 const useStyles = makeStyles({
     table: {
@@ -48,7 +50,8 @@ function Card({archivo})
     }
 
   return(
-    <TableContainer component={Paper}>
+      <Container maxWidth="sm">
+        <TableContainer component={Paper}>
       <Table className={classes.table} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
@@ -69,6 +72,9 @@ function Card({archivo})
               <img className="br-100 h3 w3 dib" alt={archivo.nombrearchivo} src={process.env.PUBLIC_URL + archivo.rutadocumento} />
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
+       
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
                 {archivo.tipoarchivo}
               </TableCell>
                   <TableCell align="right"> <a href={archivo.rutadocumento} target="_blank">Descargar</a> </TableCell>
@@ -85,6 +91,8 @@ function Card({archivo})
         </TableFooter>
       </Table>
     </TableContainer>
+      </Container>
+   
   );
 }
 

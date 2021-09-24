@@ -3,6 +3,8 @@ import Scroll from './Scroll';
 import SearchList from './SearchList';
 import { listTodos } from "../graphql/queries";
 import { API } from 'aws-amplify';
+import Box from '@material-ui/core/Box';
+import Button from '@material-ui/core/Button';
 
 
 function Search({ details }) 
@@ -53,7 +55,8 @@ function Search({ details })
     setSearchField(e.target.value);
   };
 
-  function searchList() {
+  function searchList() 
+  {
     return (
       <Scroll>
         <SearchList filteredFiles={filteredFiles} />
@@ -62,52 +65,70 @@ function Search({ details })
   }
 
   return (
-    <section className="garamond">
-      <div className="navy georgia ma0 grow">
-        <h2 className="f2">Busca un archivo</h2>
-      </div>
 
-      <div className="form-group">
-      <label htmlFor="example3">Nombre/Tipo de archivo</label>
-        <br />
-        <form className="form-inline mt-2 mt-md-0">
-          <input
-            className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
-            type="search"
-            placeholder="Busca un archivo"
-            onChange={handleChange}
-          />
-        </form>
-      </div>
+    <Box component="span" sx={{ p: 2, border: '1px dashed grey' }}>
+        <div className="navy georgia ma0 grow">
+          <h3 className="f2">Busca un archivo</h3>
+        </div>
 
-      <div className="form-group">
-        <label htmlFor="example3">Categoría</label>
-        <br />
-        <select id="subsubcategoria" className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
-         onChange={handleChange}
-        >
-        <option value="sistemas" selected>Sistemas</option>
-	            <option value="tics">TICS</option>
-	            <option value="bioquimica">Bioquimica</option>
+      <div class="row">
+        <div class="col-4">
+      
+          <div className="form-group">
+            <label htmlFor="example3">Nombre/Tipo de archivo</label>
+            <br />
+            <form className="form-inline mt-2 mt-md-0">
+              <input
+                className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
+                type="search"
+                placeholder="Busca un archivo"
+                onChange={handleChange}
+              />
+            </form>
+          </div>
+
+        </div>
+        <div class="col-4">
+          <div className="form-group">
+            <label htmlFor="example3">Categoría</label>
+            <br />
+            <select id="subsubcategoria" className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
+              onChange={handleChange}
+            >
+              <option value="sistemas" selected>Sistemas</option>
+              <option value="tics">TICS</option>
+              <option value="bioquimica">Bioquimica</option>
               <option value="civil">Civil</option>
-        </select>
+            </select>
+          </div>
+
+        </div>
+        <div class="col-4">
+
+          <div className="form-group">
+            <label htmlFor="example3">Subcategoría</label>
+            <br />
+            <select id='subcategoria' className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
+              onChange={handleChange}
+            >
+              <option value="bd" selected>Bases de datos</option>
+              <option value="programacion">Programacion</option>
+              <option value="redes">Redes</option>
+              <option value="quimica">Quimica</option>
+            </select>
+          </div>
+
+        </div>
       </div>
 
-      <div className="form-group">
-              <label htmlFor="example3">Subcategoría</label>
-              <br />
-              <select id= 'subcategoria' className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
-               onChange={handleChange}
-              >
-              <option value="bd" selected>Bases de datos</option>
-	            <option value="programacion">Programacion</option>
-	            <option value="redes">Redes</option>
-              <option value="quimica">Quimica</option>
-              </select>
-            </div>
+      <section className="garamond">
+      </section>
+
+         
 
       {searchList()}
-    </section>
+    </Box>
+    
   );
 }
 
