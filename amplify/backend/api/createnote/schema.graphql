@@ -9,4 +9,6 @@ type Todo @model
   subcategoria: String
   subsubcategoria: String
   rutadocumento: String
+  autor: String
+  resumendocumento: [String]
 }

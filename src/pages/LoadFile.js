@@ -24,6 +24,8 @@ const initialFormState = {
   subcategoria: "",
   subsubcategoria: "",
   rutadocumento: "",
+  autor: "",
+  resumendocumento:""
 };
 
 function LoadFile() 
@@ -195,6 +197,19 @@ function LoadFile()
                 value={formData.tamanoarchivo}
               />
             </div>
+
+            <div className="form-group">
+              <label htmlFor="example3">Autor/a</label>
+              <input
+                type="text"
+                id="example3"
+                className="form-control form-control-sm"
+                onChange={(e) =>
+                  setFormData({ ...formData, autor: e.target.value })
+                }
+                value={formData.autor}
+              />
+            </div>
           </div>
 
           <div class="col-4">
@@ -256,6 +271,19 @@ function LoadFile()
                 value={formData.rutadocumento}
               />
             </div>
+
+            <div className="form-group">
+              <label htmlFor="example3">Resumen del documento</label>
+              <textarea
+                id="example3"
+                className="form-control form-control-sm"
+                onChange={(e) =>
+                  setFormData({ ...formData, resumendocumento: e.target.value })
+                }
+                value={formData.resumendocumento}
+              />
+            </div>
+
           </div>
         </div>
 
