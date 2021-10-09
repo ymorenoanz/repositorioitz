@@ -25,48 +25,14 @@ const initialFormState = {
   subsubcategoria: "",
   rutadocumento: "",
   autor: "",
-  resumendocumento:""
+  resumendocumento: "",
+  palabrasclave: [""]
 };
 
 function LoadFile() 
 {
   const [notas, setNotas] = useState([]);
   const [formData, setFormData] = useState(initialFormState);
-
-  const categoria = [
-    { label: "Sistemas", value: "Sistemas", color: black },
-    { label: "TICS", value: "TICS", color: black },
-    { label: "Bioquímica", value: "Bioquímica", color: black },
-    { label: "Civil", value: "Civil", color: black },
-  ];
-
-  const subcategoria = [
-    { label: "Bases de datos", value: "Bases de datos", color: black },
-    { label: "Programación", value: "Programación", color: black },
-    { label: "Redes", value: "Redes", color: black },
-    { label: "Química", value: "Química", color: black },
-  ];
-
-  const subsubcategoria = [
-    { label: "NoSQL", value: "NoSQL", color: black },
-    { label: "POO", value: "POO" },
-    { label: "Hacking", value: "Hacking" },
-  ];
-
-  const [result, ddlvalue] = useState(categoria.label);
-  const ddHandler = (e) => 
-  {
-    ddlvalue(e.label);
-  };
-
-   // set value for default selection from select
-   const [selectedValue, setSelectedValue] = useState(subcategoria.label);
- 
-   // handle onChange event of the dropdown
-   const handleChange = e => 
-   {
-     setSelectedValue(e.label);
-   }
 
   useEffect(() => {
     fetchNotes();
@@ -135,6 +101,10 @@ function LoadFile()
     var textsubcat = selectsubcat.options[selectsubcat.selectedIndex].text;
     var selectsubsubcat = document.getElementById('subsubcategoria');
     var textsubsubcat = selectsubsubcat.options[selectsubsubcat.selectedIndex].text;
+
+    //var palabras = 
+    //palabras.split(",") 
+
     //const ruta= URL.createObjectURL(file);
     //const signedURL= await Storage.get(file.name)
 
@@ -152,6 +122,19 @@ function LoadFile()
     fetchNotes();
   }
 
+  const handleAddPalabrasClave =() => {
+    const newPalabraClave={
+      
+    }
+  }
+
+ /*const leerListaDatos = e => 
+ {
+    const { name, value } = e.target;
+      this.setState({
+          [name] : [...this.state[name], e.target.value],
+      })
+  } */
 
   return (
     <div className="LoadFile">
@@ -199,7 +182,7 @@ function LoadFile()
             </div>
 
             <div className="form-group">
-              <label htmlFor="example3">Autor/a</label>
+              <label htmlFor="example3">Autor</label>
               <input
                 type="text"
                 id="example3"
@@ -210,6 +193,7 @@ function LoadFile()
                 value={formData.autor}
               />
             </div>
+            
           </div>
 
           <div class="col-4">
@@ -281,6 +265,18 @@ function LoadFile()
                   setFormData({ ...formData, resumendocumento: e.target.value })
                 }
                 value={formData.resumendocumento}
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="example3">Palabras clave</label>
+              <textarea
+                id="example3"
+                className="form-control form-control-sm"
+                onChange={(e) =>
+                  setFormData({ ...formData, palabrasclave: e.target.value})
+                }
+                value={formData.palabrasclave}
               />
             </div>
 

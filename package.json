@@ -38,6 +38,8 @@
     "react-dropdown": "^1.9.2",
     "react-file-viewer": "^1.2.1",
     "react-file-viewer-extended": "^2.0.3",
+    "react-helmet": "^6.1.0",
+    "react-meta-tags": "^1.0.1",
     "react-pdf": "^5.3.2",
     "react-pdf-viewer": "^0.1.0",
     "react-router-dom": "^5.2.0",
@@ -47,6 +49,7 @@
     "react-viewerjs": "^0.1.9",
     "reactstrap": "^8.9.0",
     "styled-components": "^5.2.3",
+    "tachyons": "^4.12.0",
     "web-vitals": "^1.1.1"
   },
   "resolutions": {

@@ -49,3 +49,20 @@ amplify-s3-text
   --text-color: deepskyblue;
 }
 
+ul {
+  list-style-type: none;
+  text-align: center
+}
+
+li {
+  background-color: gray;
+  border: #D7C8B6 2px solid;
+  display: inline;
+  margin-right: 10px;
+}
+
+a {
+  color: white;
+  padding: 0 4px;
+  text-decoration: none;
+}

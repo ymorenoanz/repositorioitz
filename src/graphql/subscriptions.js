@@ -13,6 +13,9 @@ export const onCreateTodo = /* GraphQL */ `
       subcategoria
       subsubcategoria
       rutadocumento
+      autor
+      resumendocumento
+      palabrasclave
       createdAt
       updatedAt
     }
@@ -30,6 +33,9 @@ export const onUpdateTodo = /* GraphQL */ `
       subcategoria
       subsubcategoria
       rutadocumento
+      autor
+      resumendocumento
+      palabrasclave
       createdAt
       updatedAt
     }
@@ -47,6 +53,9 @@ export const onDeleteTodo = /* GraphQL */ `
       subcategoria
       subsubcategoria
       rutadocumento
+      autor
+      resumendocumento
+      palabrasclave
       createdAt
       updatedAt
     }

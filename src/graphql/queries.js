@@ -13,6 +13,9 @@ export const getTodo = /* GraphQL */ `
       subcategoria
       subsubcategoria
       rutadocumento
+      autor
+      resumendocumento
+      palabrasclave
       createdAt
       updatedAt
     }
@@ -35,6 +38,9 @@ export const listTodos = /* GraphQL */ `
         subcategoria
         subsubcategoria
         rutadocumento
+        autor
+        resumendocumento
+        palabrasclave
         createdAt
         updatedAt
       }

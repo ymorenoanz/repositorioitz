@@ -61,6 +61,10 @@ function Card({archivo})
             <TableCell align="right">Descargar</TableCell>
             <TableCell align="right">Categoria</TableCell>
             <TableCell align="right">Subcategoria</TableCell>
+            <TableCell align="right">Subsubcategoria</TableCell>
+            <TableCell align="right">Autor</TableCell>
+            <TableCell align="right">Resumen</TableCell>
+            <TableCell align="right">Palabras clave</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,21 +72,33 @@ function Card({archivo})
               <TableCell component="th" scope="row">
                 {archivo.nombrearchivo}
               </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-              <img className="br-100 h3 w3 dib" alt={archivo.nombrearchivo} src={process.env.PUBLIC_URL + archivo.rutadocumento} />
-              </TableCell>
-              <TableCell style={{ width: 160 }} align="right">
-       
-              </TableCell>
+
               <TableCell style={{ width: 160 }} align="right">
                 {archivo.tipoarchivo}
               </TableCell>
+
+              <TableCell style={{ width: 160 }} align="right">
+              <img className="br-100 h3 w3 dib" alt={archivo.nombrearchivo} src={process.env.PUBLIC_URL + archivo.rutadocumento} />
+              </TableCell>
+      
                   <TableCell align="right"> <a href={archivo.rutadocumento} target="_blank">Descargar</a> </TableCell>
               <TableCell style={{ width: 160 }} align="right">
                 {archivo.categoria}
               </TableCell>
               <TableCell style={{ width: 160 }} align="right">
                 {archivo.subcategoria}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {archivo.subsubcategoria}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {archivo.autor}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {archivo.resumendocumento}
+              </TableCell>
+              <TableCell style={{ width: 160 }} align="right">
+                {archivo.palabrasclave}
               </TableCell>
             </TableRow>
         </TableBody>
