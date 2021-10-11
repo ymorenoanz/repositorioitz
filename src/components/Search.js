@@ -8,7 +8,8 @@ import Button from '@material-ui/core/Button';
 import { Note } from '@react-pdf/renderer';
 
 
-function Search({ details }) {
+function Search({ details }) 
+{
 
   const [searchField, setSearchField] = useState("");
   const [notas, setNotas] = useState([]);
@@ -38,23 +39,24 @@ function Search({ details }) {
   //var textsubsubcat = selectsubsubcat.options[selectsubsubcat.selectedIndex].text;
 
   const separarPalabras = notas.map(nota => {
-    var cadena = nota.palabrasclave;
-    var palabra="nosql";
+    //var cadena = nota.palabrasclave;
+    //var palabra="nosql";
     //var index = cadena.indexOf(palabra);
+    //{notas.map(note => note.palabrasclave !== palabrasclave}
   });
 
  
   const filteredFiles = notas.filter(
     nota => {
-     // let cadena = nota.palabrasclave;
+      let cadena = nota.palabrasclave;
       //var palabra= cadena.slice();
       return (
         nota.nombrearchivo.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.tipoarchivo.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.categoria.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.subcategoria.toLowerCase().includes(searchField.toLowerCase()) ||
-        nota.subsubcategoria.toLowerCase().includes(searchField.toLowerCase()) 
-        //nota.palabrasclave.toLowerCase().includes(searchField.toLowerCase())
+        nota.subsubcategoria.toLowerCase().includes(searchField.toLowerCase()) ||
+        nota.palabrasclave.toLowerCase().includes(searchField.toLowerCase())
         //nota.palabrasclave.indexOf(searchField.toLowerCase()) > -1
       );
     }
@@ -102,7 +104,12 @@ function Search({ details }) {
             <ul>
               {notas.map(note => <li key={note.id}><a>{note.palabrasclave}</a></li>)}
             </ul>
-
+            <input
+                className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
+                type="search"
+                placeholder="Busca por palabra clave"
+                onChange={handleChange}
+              />
           </div>
 
         </div>
