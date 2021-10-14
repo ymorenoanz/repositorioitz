@@ -40,6 +40,9 @@ function Search({ details })
 
   const separarPalabras = notas.map(nota => {
     //var cadena = nota.palabrasclave;
+    //var index = cadena.lenght;
+    //var primeraParte = cadena.slice(0, index/2);
+    //var segundaParte = cadena.slice(index/2,index);
     //var palabra="nosql";
     //var index = cadena.indexOf(palabra);
     //{notas.map(note => note.palabrasclave !== palabrasclave}
@@ -48,16 +51,20 @@ function Search({ details })
  
   const filteredFiles = notas.filter(
     nota => {
-      let cadena = nota.palabrasclave;
-      //var palabra= cadena.slice();
+      //var cadena = nota.palabrasclave;
+      //var index = cadena.length;
+      //var primeraParte = cadena.slice(0, index/2);
+      //var segundaParte = cadena.slice(index/2,index);
       return (
         nota.nombrearchivo.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.tipoarchivo.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.categoria.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.subcategoria.toLowerCase().includes(searchField.toLowerCase()) ||
         nota.subsubcategoria.toLowerCase().includes(searchField.toLowerCase()) ||
-        nota.palabrasclave.toLowerCase().includes(searchField.toLowerCase())
-        //nota.palabrasclave.indexOf(searchField.toLowerCase()) > -1
+        nota.palabrasclave &&
+        nota.palabrasclave.indexOf(searchField.toLowerCase()) > -1 
+
+        //cadena.toLowerCase().includes(searchField.toLowerCase())
       );
     }
   );
@@ -77,25 +84,12 @@ function Search({ details })
   return (
 
     <Box component="span" sx={{ p: 2, border: '1px dashed grey' }}>
-      <div className="navy georgia ma0 grow">
+      <div className="navy georgia ma0 grow" >
         <h3 className="f2">Busca un archivo</h3>
       </div>
 
       <div class="row">
         <div class="col-4">
-
-          <div className="form-group">
-            <label htmlFor="example3">Nombre de archivo</label>
-            <br />
-            <form className="form-inline mt-2 mt-md-0">
-              <input
-                className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
-                type="search"
-                placeholder="Busca un archivo"
-                onChange={handleChange}
-              />
-            </form>
-          </div>
 
           <div className="form-group">
             <label htmlFor="example3">Palabras clave</label>
@@ -115,6 +109,20 @@ function Search({ details })
         </div>
 
         <div class="col-4">
+
+        <div className="form-group">
+            <label htmlFor="example3">Nombre de archivo</label>
+            <br />
+            <form className="form-inline mt-2 mt-md-0">
+              <input
+                className="pa3 bb br3 grow b--none bg-lightest-blue ma3"
+                type="search"
+                placeholder="Busca un archivo"
+                onChange={handleChange}
+              />
+            </form>
+          </div>
+          
           <div className="form-group">
             <label htmlFor="example3">Tipo de archivo</label>
             <br />
