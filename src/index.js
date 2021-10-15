@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Amplify from 'aws-amplify';
+import {Amplify, Auth} from 'aws-amplify';
 import config from './aws-exports';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; // Archivo CSS de Bootstrap 4 
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'; 
@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Estilos from './styles/Estilos.css'
 
 Amplify.configure(config);
+Auth.configure(config);
 
 
 ReactDOM.render(
