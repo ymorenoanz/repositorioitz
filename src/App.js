@@ -18,6 +18,11 @@ import Footer from './components/Footer';
 import DownloadFiles from './pages/DownloadFiles';
 import DataGrid from './pages/DataGrid';
 import Buscador from './pages/Buscador';
+import {Amplify, Auth} from 'aws-amplify';
+import config from './aws-exports';
+
+Amplify.configure(config);
+Auth.configure(config);
 
 function App() 
 {
